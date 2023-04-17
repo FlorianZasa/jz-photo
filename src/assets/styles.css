@@ -1,0 +1,44 @@
+:root {
+    --primary-color: hsl(49, 42%, 67%);
+}
+
+h1 {
+    margin: 0 !important;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+h4 {
+    margin: 0 !important;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.btn {
+    font-weight: 700;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    background-color: var(--primary-color);
+    color: white;
+
+    border-radius: 5px;
+    box-shadow: none;
+    border: none;
+    width: fit-content;
+
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.nav-item {
+    background: transparent !important;
+    border: none !important;
+    font-size: large;
+    color: white;
+}
