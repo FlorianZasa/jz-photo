@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { VueGtag } from 'vue-gtag'
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 /* import font awesome icon component */
@@ -19,4 +20,7 @@ library.add(faCalendar)
 createApp(App)
 .component('font-awesome-icon', FontAwesomeIcon)
 .use(router)
+.use(VueGtag, {
+    config: { id: "G-PNGLDC48C0"}
+})
 .mount('#app')
