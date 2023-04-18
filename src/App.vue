@@ -36,6 +36,20 @@ html, body {
   color: #2c3e50;
 }
 
+footer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--primary-color);
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 600px) {
   .btn {
     font-size: large;

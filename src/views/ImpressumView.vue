@@ -1,31 +1,20 @@
 <template>
   <div class="impressum">
-    <b>Hier steht das Impressum:</b>
-    <p>
-      Anbieter: <br>
-      Max Mustermann<br>
-      Musterstraße 1<br>
-      80999 München<br>
-      <br>
-      Kontakt:<br>
-      Telefon: 089/1234567-8<br>
-      Telefax: 089/1234567-9<br>
-      E-Mail: mail@mustermann.de<br>
-      Website: www.mustermann.de<br>
-      <br>
-      <br>
-      <br>
-      Bei redaktionellen Inhalten:<br>
-      <br>
-      Verantwortlich nach § 55 Abs.2 RStV<br>
-      Moritz Schreiberling<br>
-      Musterstraße 2<br>
-      80999 München<br>
-    </p>
-    <br>
-    <hr>
-    <router-link to="/" class="btn"><font-awesome-icon icon="fa-solid fa-arrow-left" /> Bring mich zurück</router-link>
-    <br>
+    <h1>Impressum</h1>
+
+<h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+<p>Florian Zasada<br />
+Musterstra&szlig;e 111<br />
+Geb&auml;ude 44<br />
+90210 Musterstadt</p>
+
+<h2>Kontakt</h2>
+<p>Telefon: +49 (0) 123 44 55 66<br />
+Telefax: +49 (0) 123 44 55 99<br />
+E-Mail: mustermann@musterfirma.de</p>
+
+<p>Quelle: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
+<router-link to="/" class="btn"><font-awesome-icon icon="fa-solid fa-arrow-left" /> Bring mich zurück!</router-link>
   </div>
 </template>
 
