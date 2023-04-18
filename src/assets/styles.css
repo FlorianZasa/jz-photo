@@ -41,9 +41,22 @@ h4 {
     border: none !important;
     font-size: large;
     color: white;
+    transition: 1s ease-in;
+}
+
+.nav-item:hover {
+    border-left: .5px solid var(--primary-color) !important;
+    border-right: .5px solid var(--primary-color) !important;
+    color: var(--primary-color);
+
 }
 
 input, textarea {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+textarea {
+    resize: vertical;
+    max-height: 400px; min-height: 100px;
 }
