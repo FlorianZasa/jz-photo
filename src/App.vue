@@ -2,7 +2,7 @@
   <div class="app">
     <NavBar @id="scrollToElement" />
     
-    <section id="header" ref="header">
+    <section id="home" ref="home">
       <div class="header-view-center-image">
         <div class="header-view-center-container">
           <h1>Wo die Kreativität zu Hause ist</h1>
@@ -31,6 +31,48 @@
             in Anspruch nehmen. Was nicht zu ....
           </span>
           <button class="btn">Alle Termine</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" ref="kontakt">
+      <div class="kontakt-frame">
+        <div class="kontakt-frame-inner">
+          <h4>Kontakt</h4>
+          <span>Erreiche mich schnell und unkompliziert.</span>
+          <label for="vname">Vorname:</label>
+          <input type="text" id="vname" name="vname">
+          <label for="nname">Nachname:</label>
+          <input type="text" id="nname" name="nname">
+          <label for="email">E-Mail:</label>
+          <input type="email" id="email" name="email"><br>
+          <label for="anliegen">Ihr Anliegen:</label>
+          <textarea id="anliegen" name="anliegen" rows="6"></textarea><br>
+          <button class="btn">Senden</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungen" ref="leistungen">
+      <div class="leistungen-frame">
+        <div class="leistungen-frame-inner">
+          <h4>Meine Leistungen</h4>
+          <span><b>Hier stehen dann die Leistungen mit einer Preisliste:</b></span>
+          <br>
+          <table>
+            <thead>
+              <th>Leistung</th>
+              <th>Beschreibung</th>
+              <th>Preis</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Leistungstitel</td>
+                <td>Beschreibung der Leistung</td>
+                <td>9,99 €</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -142,7 +184,6 @@ span {
   background-image: url("https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_1280.jpg");
   padding: 3rem;
   justify-content: center;
-
 }
 
 .termine-frame-inner {
@@ -160,6 +201,38 @@ footer {
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
+}
+
+.kontakt-frame {
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+}
+
+.kontakt-frame-inner {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.leistungen-frame {
+  background-color: black;
+  display: flex;
+  padding: 3rem;
+  justify-content: center;
+}
+
+.leistungen-frame-inner {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+table th, table td{
+  padding: .8rem;
 }
 
 
@@ -182,11 +255,32 @@ footer {
 
     }
     .termine-frame {
-      padding: 2rem;
+      padding: 1rem;
     }
 
     .termine-frame-inner{
       max-width: 100%;
+      padding: 1rem;
+    }
+    
+    .kontakt-frame-inner{
+      padding: 1rem;
+    }
+
+    .kontakt-frame{
+      padding: 1rem;
+    }
+
+    .leistungen-frame{
+      padding: 1rem;
+    }
+
+    .leistungen-frame-inner{
+      padding: 1rem;
+    }
+
+    table th, table td {
+      padding: .3rem;
     }
 }
 

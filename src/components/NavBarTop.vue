@@ -15,10 +15,10 @@
                 <a href="#">Julia Zasada Fotografie & Design</a>
             </div>
             <div class="right">
-                <button class="nav-item active">Home</button>
-                <button class="nav-item" @click="scrollToElement($event)" id="termine">Termine</button>
-                <button class="nav-item" @click="scrollToElement($event)" id="kontakte">Kontakt</button>
-                <button class="nav-item" @click="scrollToElement($event)" id="leistungen">Meine Leistungen</button>
+                <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('home')" id="home">Home</button>
+                <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('termine')" id="termine">Termine</button>
+                <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('kontakt')" id="kontakt">Kontakt</button>
+                <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('leistungen')" id="leistungen">Meine Leistungen</button>
                 <button class="btn">Jetzt Buchen</button>
             </div>
         </nav>
@@ -27,9 +27,25 @@
 
 <script>
 export default {
+    data() {
+        return {
+            active: "home"
+        }
+    },
     methods: {
+        setElementActive(id) {
+            console.log(this.active, id)
+            if(id == this.active) {
+                return "active"
+            } else {
+
+                return "inactive"
+            }
+        },
         scrollToElement(event) {
             var id = event["target"].id
+            this.active = id
+
             this.$emit('id', id);
         }
     }
