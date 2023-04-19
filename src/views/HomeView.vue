@@ -9,7 +9,7 @@
                 <h1>Wo die Kreativität zu Hause ist</h1>
                 <!-- <img src="./assets/title.gif" alt="Wo die Kreativität zu Hause ist"> -->
                 <span>Point Design, Grafiksedign, Gutes Design</span>
-                <button class="btn">Mehr lesen <font-awesome-icon icon="fa-solid fa-arrow-right" /></button>
+                <router-link to="/404" class="btn">Mehr lesen <font-awesome-icon icon="fa-solid fa-arrow-right" /></router-link>
                 </div>
             </div>
             </section>
@@ -19,7 +19,7 @@
                 <div class="motivation-frame-inner">
                 <h4>Meine Motivation</h4>
                 <span>Meine Arbeit ist meine Leidenschaft und ein positiver Antrieb für jeden Tag fpr Sie mich dazu an jeder neuen Herausforderung zu wachsen und so neue Ziele zu erreichen.</span>
-                <button class="btn">Mehr lesen <font-awesome-icon icon="fa-solid fa-arrow-right" /></button>
+                <router-link to="/404" class="btn">Mehr lesen <font-awesome-icon icon="fa-solid fa-arrow-right" /></router-link>
                 </div>
             </div>
             </section>
@@ -31,7 +31,7 @@
                 <span>Schneller, stressiger Alltag! Es ist erstaunlich, wie gerade die kleinen Dinge manchmal besonders viel Zeit
                     in Anspruch nehmen. Was nicht zu ....
                 </span>
-                <button class="btn"><font-awesome-icon icon="fa-solid fa-calendar" /> Alle Termine</button>
+                <router-link to="/termine" class="btn"><font-awesome-icon icon="fa-solid fa-calendar" /> Alle Termine</router-link>
                 </div>
             </div>
             </section>
@@ -41,7 +41,7 @@
                 <div class="kontakt-frame-inner">
                 <h4>Kontakt</h4>
                 <span>Erreiche mich schnell und unkompliziert.</span>
-                <form action="default.prevent">
+                <form action="/buchung" id="buchung-form">
                     <label for="vname">Vorname:</label>
                     <input type="text" id="vname" name="vname" required>
                     <label for="nname">Nachname:</label>
@@ -59,10 +59,26 @@
             <section id="leistungen" ref="leistungen">
             <div class="leistungen-frame">
                 <div class="leistungen-frame-inner">
-                <h4>Meine Leistungen</h4>
-                <span><b>Hier stehen dann die Leistungen mit einer Preisliste:</b></span>
-                <br>
-                <table>
+                  <h4>Meine Leistungen</h4>
+                  <br>
+                  <div class="leistung-card-frame">
+                    <LeistungCard title="Leistungstitel 1" body="Dieser Titel beinhaltet weitere Lesitungen, die gebucht werden können" price=9,99 oldPrice="23,98" />
+                    <LeistungCard title="Leistungstitel 2" body="Leistungsbeschreibung beschreibt die Leistung genauer" price=22,00 oldPrice="100,00" />
+                    <LeistungCard title="Leistungstitel 3" body="Weitere Leistung beinhaltet noch intensivere Sessions" price=100,99 oldPrice="0" />
+                  </div>
+                  <div class="leistung-table">
+                    <div class="leistung">
+                      <span>Leistungstitel 1</span>
+                      <span>Leistungsbeschreibung beschreibt die Leistung genauer</span>
+                      <span><b>9,99 €</b> <s>12,99 €</s></span>
+                    </div>
+                    <div class="leistung">
+                      <span>Leistungstitel 2</span>
+                      <span>Dieser Titel beinhaltet weitere Lesitungen, die gebucht werden können</span>
+                      <span><b>22,00 €</b> <s>100,00 €</s></span>
+                    </div>
+                  </div>
+                <!-- <table>
                     <thead>
                     <th>Leistung</th>
                     <th>Beschreibung</th>
@@ -75,18 +91,20 @@
                         <td>9,99 €</td>
                     </tr>
                     </tbody>
-                </table>
+                </table> -->
                 </div>
-            </div>
+              </div>
             </section>
         </div>
 </template>
 
 <script>
 import NavBar from '@/components/NavBarTop.vue'
+import LeistungCard from '@/components/LeistungCard.vue'
 export default {
     components: {
-        NavBar
+        NavBar,
+        LeistungCard
     },
     methods: {
         scrollToElement(id) {
@@ -94,7 +112,7 @@ export default {
         const el = this.$refs[id];
 
         if (el) {
-            el.scrollIntoView({behavior: 'smooth'});
+            el.scrollIntoView({top: '-100px', behavior: 'smooth'});
         }
     }
   }
@@ -102,6 +120,9 @@ export default {
 </script>
 
 <style scoped>
+.home-container{
+  z-index: 1;
+}
 .header-view-center-image {
   color: white;
   background-image: url("https://cdn.pixabay.com/photo/2014/09/07/22/17/forest-438432_1280.jpg");
@@ -111,9 +132,7 @@ export default {
   padding: .5rem;
 
   display: flex;
-
 }
-
 .header-view-center-container {
   width: 60%;
   display: flex;
@@ -192,6 +211,14 @@ footer {
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  width: 100%
+}
+
+#buchung-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 80%;
+  gap: .5rem;
 }
 
 .leistungen-frame {
@@ -207,7 +234,38 @@ footer {
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  gap: 1rem;
 }
+
+.leistung-card-frame {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.leistung {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  justify-content: space-between;
+  gap:2rem;
+}
+.leistung span {
+  text-align: left;
+}
+
+.leistung span b{
+      background-color: var(--primary-color);
+      padding: .5rem;
+      border-radius: 50%;
+    }
 
 table th, table td{
   padding: .8rem;
@@ -249,6 +307,10 @@ table th, table td{
       padding: 1rem;
     }
 
+    #buchung-form {
+      width: 100%
+    }
+
     .leistungen-frame{
       padding: 1rem;
     }
@@ -260,6 +322,28 @@ table th, table td{
     table th, table td {
       padding: .3rem;
     }
+
+    .leistung {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      max-width: 90%;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    .leistung span {
+      text-align: center;
+    }
+
+    .leistung-card-frame {
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+    }
+
 }
 
 </style>

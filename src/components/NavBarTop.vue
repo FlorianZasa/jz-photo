@@ -1,10 +1,8 @@
 <template>
     <div class="nav-bar-container">
-        
-        
         <div class="nav-toggle">
             <div class="right">
-                <a href="#">Julia Zasada Fotografie & Design</a>
+                <a href="/">Julia Zasada Fotografie & Design</a>
             </div>
             <div class="left">
                 <button @click="expandMenu()" id="nav-toggle-btn"><font-awesome-icon icon="fa-solid fa-bars" /></button>
@@ -15,7 +13,7 @@
             <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('termine')" id="termine">Termine</button>
             <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('kontakt')" id="kontakt">Kontakt</button>
             <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('leistungen')" id="leistungen">Meine Leistungen</button>
-            <button class="btn"><font-awesome-icon icon="fa-solid fa-calendar-check" /> Jetzt Buchen</button>
+            <router-link to="/buchen" class="btn"><font-awesome-icon icon="fa-solid fa-calendar-check" /> Jetzt Buchen</router-link>
         </div>
 
         <nav class="nav-bar">
@@ -27,7 +25,7 @@
                 <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('termine')" id="termine">Termine</button>
                 <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('kontakt')" id="kontakt">Kontakt</button>
                 <button class="nav-item" @click="scrollToElement($event)" :class="setElementActive('leistungen')" id="leistungen">Meine Leistungen</button>
-                <button class="btn"><font-awesome-icon icon="fa-solid fa-calendar-check" /> Jetzt Buchen</button>
+                <router-link to="/buchen" class="btn"><font-awesome-icon icon="fa-solid fa-calendar-check" /> Jetzt Buchen</router-link>
             </div>
         </nav>
     </div> 
@@ -69,6 +67,10 @@ export default {
 <style scoped>
 @import '../assets/styles.css';
 
+.nav-bar-container {
+    z-index: 999999999;
+}
+
 a {
     text-decoration: none;
     color: white;
@@ -76,42 +78,6 @@ a {
 
 .active {
     border-bottom: 3px solid white !important;
-}
-
-.nav-bar-container {
-    width: 100%;
-    /* position: absolute; */
-    position: fixed;
-    /* background: rgba(0, 0, 0, 0.513); */
-    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
-}
-.nav-bar {
-    position: relative;
-
-    padding: 1.5rem;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-}
-
-.right {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    align-items: center;
-}
-
-button{
-    background-color: var(--primary-color);
 }
 
 .nav-toggle {
@@ -123,10 +89,13 @@ button{
 
 #menu-expand {
     display: flex;
+    z-index: 999999;
+    border-radius: 12px;
     flex-direction: column;
-    gap: 1rem;
+    justify-items: flex-end;
+    gap: 3rem;
     align-items: center;
-    background: black;
+    background: rgba(22, 22, 22, 0.95);
     padding: 1rem;
 }
 

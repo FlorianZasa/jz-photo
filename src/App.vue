@@ -1,11 +1,13 @@
 <template>
   <div class="app">
     
+    
+
     <router-view></router-view>
 
     <footer>
-      <a href="#impressum">Impressum</a>
-      <a href="#impressum">Datenschutz</a>
+      <router-link to="/impressum">Impressum</router-link>
+      <router-link to="/impressum">Datenschutz</router-link>
     </footer>
 
 
@@ -50,9 +52,10 @@ footer a {
   text-decoration: none;
 }
 
+
 @media only screen and (max-width: 600px) {
   .btn {
-    font-size: large;
+    font-size: 16px;
   }
 }
 
