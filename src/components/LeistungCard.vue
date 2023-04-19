@@ -72,6 +72,7 @@ export default {
     text-align: center;
     padding: .3rem;
     min-width: 110px;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.602);;
 }
 
 @media only screen and (max-width: 600px) {
@@ -80,8 +81,10 @@ export default {
     }
 
     .price-tag {
-        top: -60px;
+        top: -30px;
         right: -150px;
+        min-width: 90px;
+
     }
 }
 
